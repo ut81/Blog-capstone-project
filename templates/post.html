@@ -1,0 +1,95 @@
+    {% include 'header.html' %}
+    {% import 'bootstrap/wtf.html' as wtf %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{post.img_url}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                       
+
+                        <div class="post-heading">
+                            <h1>{{post['title']}}</h1>
+                            <h2 class="subheading">{{post['subtitle']}}</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">{{post.author.name}}</a>
+                                on {{post.date}}
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>{{post['body']|safe}}</p>
+                       
+                        <hr>
+                        {% if current_user.id==1 :%}
+                        <div class="d-flex justify-content-end"><a class="btn btn-primary text-uppercase " href="{{url_for('edit_post',post_id=post.id)}}">Edit Post</a></div>
+                        {% endif %}
+                    </div>
+
+                    
+                </div>
+                
+            </div>
+           
+        </article>
+        
+        <br>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    {{ckeditor.load()}}
+                {{ckeditor.config(name='comment')}}
+                {{wtf.quick_form(form=form,novalidate=True,button_map={"submit":"primary"})}}
+
+                </div>
+                
+        
+
+            </div>
+        </div>
+        <br>
+                
+            <div class="container mt-5 pt-5 ml-0">
+
+              <div class="row d-flex justify-content-start">
+                <div class="col-md-12 col-lg-6 col-xl-8">
+                   
+                    {% for comment in post.comments: %}
+                      <div class="d-flex flex-start">
+                        
+                        <img class="rounded-circle shadow-1-strong me-3"
+                          src="{{comment.comment_author.email|gravatar}}" alt="avatar" width="40"
+                          height="40" />
+                        <div>
+                          <h6 class="fw-bold text-primary mb-1">{{comment.comment_author.name}}</h6>
+                          <p class="text-muted small mb-0 mt-0">
+                            {{comment.date}}
+                          </p>
+                        </div>
+                      </div>
+          
+                      <p class="mt-1 mb-4 pb-2">
+                        {{comment.text|safe}}
+                      </p>
+          
+                      
+                    </div>
+                    {% endfor %}
+                
+                
+              </div>
+            </div>
+          
+        <br>
+       
+{% include 'footer.html' %}

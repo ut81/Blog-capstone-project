@@ -1,0 +1,86 @@
+{% include 'header.html' %}
+
+
+
+
+<header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Log In </h1>
+                    <span class="subheading">A Blog Theme by Utsav</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-2 mx-auto ">
+            <div style="color:red">
+                {% with messages=get_flashed_messages() %}
+            {% if messages : %}
+            {% for message in messages: %}
+            <p>
+                {{message}}
+            </p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+
+            </div>
+            
+
+        
+                <form action="{{url_for('login')}}" method='POST' novalidate >
+                    {{form.csrf_token}}
+
+                    <p>
+                        {{form.email.label}} <br> {{form.email}}
+                    
+                    </p>
+                    <p>
+                        {{form.password.label}} <br> {{form.password}}
+                    
+                    </p>
+
+                    <button class="btn btn-primary" type="submit">Sign In</button>
+                </form>
+    
+
+            
+           
+        </div>
+
+       
+    
+
+    </div>
+    
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'footer.html' %}
