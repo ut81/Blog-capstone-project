@@ -1,4 +1,6 @@
 # Blog-capstone-project
+
+A blog website,user can create,update,,edit and delete blogs.
  
  # ScreenShots
  
@@ -29,3 +31,20 @@
 * Contact 
 
 ![image](https://user-images.githubusercontent.com/126648429/222144593-b6d433bf-6a75-40fb-a1c7-6e1fcfb5aa92.png)
+
+
+
+# instructions
+ * first signup user will be the admin.
+ * Only admin can create,edit and delete posts.
+ * Click on ✘ to delete post.
+ * To comment on a blog post login required.
+ 
+ # Steps to run:
+ * Provide your email and password to recieve email from users.
+ * To start the server, run main.py on your code editor,
+   
+   The server will start running on 
+   http://127.0.0.1:5000
+    
+
