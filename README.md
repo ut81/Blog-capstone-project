@@ -40,6 +40,12 @@ A blog website,user can create,update,,edit and delete blogs.
  * Click on ✘ to delete post.
  * To comment on a blog post login required.
  
+ 
+ # Requirements
+ 
+ you will need to create a [secret_key](https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key) in your main.py
+ 
+ 
  # Steps to run:
  * Provide your email and password to recieve email from users.
  * To start the server, run main.py on your code editor,
