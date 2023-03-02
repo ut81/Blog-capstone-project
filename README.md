@@ -43,11 +43,11 @@ A blog website,user can create,update,,edit and delete blogs.
  
  # Requirements
  
- you will need to create a [secret_key](https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key) in your main.py
+   * you will need to create a [secret_key](https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key) in your main.py
  
- 
+   * Provide your email and password to recieve email from users.
  # Steps to run:
- * Provide your email and password to recieve email from users.
+ 
  * To start the server, run main.py on your code editor,
    
    The server will start running on 
